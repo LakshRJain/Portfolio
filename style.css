@@ -574,60 +574,79 @@ body {
 }
 
 /* Skills Section - Semi-transparent background */
+/* Skills Section - Image-based inline design */
+/* Skills Section - Structured categories */
 .skills {
-    padding: 6rem 0;
-    background: rgba(249, 250, 251, 0.8);
-}
-
-[data-theme="dark"] .skills {
-    background: linear-gradient(135deg, rgba(18, 17, 46, 0) 0%, rgba(33, 31, 87, 0) 100%);
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 3rem;
-}
-
-.skill-category {
-    background: var(--background);
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: var(--shadow);
-}
-
-.skill-category h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 2rem;
-    color: var(--text-primary);
-}
-
-.skill-item {
-    margin-bottom: 1.5rem;
-}
-
-.skill-item span {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    color: var(--text-primary);
-}
-
-.skill-bar {
-    height: 8px;
-    background: var(--surface);
-    border-radius: 4px;
+    padding: 4rem 0;
+    background: transparent;
     overflow: hidden;
 }
 
-.skill-progress {
-    height: 100%;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-    border-radius: 4px;
-    width: 0;
-    transition: width 1s ease-in-out;
+.skills-scroll-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
 }
+
+.skills-scroll-track {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    animation: scroll-horizontal 30s linear infinite;
+    width: fit-content;
+}
+
+/* Pause animation on hover */
+.skills-scroll-track:hover {
+    animation-play-state: paused;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.75rem;
+    background: transparent;
+    border-radius: 10px;
+    transition: var(--transition);
+    cursor: pointer;
+    min-width: 80px;
+    flex-shrink: 0;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+}
+
+.skill-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+    transition: var(--transition);
+    filter: brightness(0.9);
+}
+
+.skill-item:hover .skill-logo {
+    transform: scale(1.15);
+    filter: brightness(1.1);
+}
+
+.skill-item span {
+    font-weight: 600;
+    color: var(--text-primary);
+    text-align: center;
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+.skill-item:hover span {
+    color: var(--dart-orange);
+}
+
+
+
+
 
 /* Contact Section - Semi-transparent background */
 .contact {
@@ -794,7 +813,7 @@ body {
     position: fixed;
     width: 4px;
     height: 4px;
-    background: var(--primary-color);
+    background: var(--accent-color);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
@@ -861,10 +880,27 @@ body {
         grid-template-columns: 1fr;
     }
     
-    .skills-grid {
-        grid-template-columns: 1fr;
+      .skills-scroll-track {
+        gap: 2rem;
+        animation-duration: 25s; /* Slightly faster on mobile */
     }
     
+    .skill-logo {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .skill-item span {
+        font-size: 0.75rem;
+    }
+    
+    .skill-item {
+        min-width: 70px;
+    }
+    
+    .category-title {
+        font-size: 1.3rem;
+    }
     .projects-grid {
         grid-template-columns: 1fr;
     }
@@ -884,12 +920,42 @@ body {
     .nav-container {
         padding: 1rem;
     }
+  .skills-scroll-track {
+        gap: 1.5rem;
+        animation-duration: 20s; /* Even faster on small screens */
+    }
     
+    .skill-logo {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .skill-item span {
+        font-size: 0.7rem;
+    }
+    
+    .skill-item {
+        min-width: 60px;
+    }
+    
+    .category-title {
+        font-size: 1.2rem;
+    }
     .hero-title {
         font-size: 2rem;
     }
     
     .section-title {
         font-size: 2rem;
+    }
+}
+
+
+@keyframes scroll-horizontal {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
     }
 }
