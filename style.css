@@ -71,12 +71,15 @@ body {
 /* Navigation */
 .navbar {
     position: fixed;
-    top: 0;
-    width: 100%;
+    top: 2%;
+    left: 10%;
+    width: 80%;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
     transition: var(--transition);
+    
+    border-radius: 40px;
 }
 
 [data-theme="dark"] .navbar {
@@ -322,7 +325,7 @@ body {
 
 /* About Section - Semi-transparent background */
 .about {
-    padding: 6rem 0;
+    padding: 2rem 0;
     background: rgba(249, 250, 251, 0.8);
 }
 
@@ -446,7 +449,7 @@ body {
 
 /* Projects Section - Semi-transparent background */
 .projects {
-    padding: 6rem 0;
+    padding: 4rem 0;
     background: rgba(255, 255, 255, 0.8);
 }
 
