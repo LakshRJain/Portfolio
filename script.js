@@ -1,31 +1,8 @@
 // Smooth scrolling and navigation
 document.addEventListener('DOMContentLoaded', function() {
-    // Theme toggle functionality
-    const themeToggle = document.getElementById('theme-toggle');
+    // Set dark mode as default - No theme toggle needed
     const body = document.body;
-    const themeIcon = themeToggle.querySelector('i');
-
-    // Check for saved theme preference or default to light mode
-    const savedTheme = 'dark';
-    body.setAttribute('data-theme', savedTheme);
-    updateThemeIcon(savedTheme);
-
-    themeToggle.addEventListener('click', function() {
-        const currentTheme = body.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark';
-        
-        body.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateThemeIcon(newTheme);
-    });
-
-    function updateThemeIcon(theme) {
-        if (theme === 'dark') {
-            themeIcon.className = 'fas fa-sun';
-        } else {
-            themeIcon.className = 'fas fa-moon';
-        }
-    }
+    body.setAttribute('data-theme', 'dark');
 
     // Mobile menu toggle
     const hamburger = document.getElementById('hamburger');
