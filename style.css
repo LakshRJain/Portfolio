@@ -338,8 +338,27 @@ body {
     color: var(--text-primary);
     position: relative;
 }
+.subsection-title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: var(--text-primary);
+    position: relative;
+}
 
 .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+.subsection-title::after {
     content: '';
     position: absolute;
     bottom: -10px;
